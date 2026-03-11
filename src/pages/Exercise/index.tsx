@@ -80,7 +80,7 @@ function Exercise() {
         tag_ids: [],
         status: '',
         page: 1,
-        page_size: 100,
+        page_size: 1000,
       });
       if (res && res.code === 200) {
         const mappedQuestions = (res.data.items || []).map((q) => ({

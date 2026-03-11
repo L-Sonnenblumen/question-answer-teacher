@@ -41,7 +41,7 @@ function Quiz() {
       const res = await api.teacher.quiz_list({
         status: apiStatus,
         page: 1,
-        page_size: 100, // 此处先拉取大量数据满足本地展示，后续可加真实分页
+        page_size: 1000, // 此处先拉取大量数据满足本地展示，后续可加真实分页
       });
 
       if (res && res.code === 200) {
@@ -133,7 +133,6 @@ function Quiz() {
       key: 'submitRate',
       align: 'center',
       width: 80,
-      width: 150,
       render: (rate) => (
         <Space>
           <Progress

@@ -401,7 +401,7 @@ export default function QuizAnalysis() {
           question_id: question.question_id,
           // 强制请求第一页极大数据量，供前端纯本地筛选与分页
           page: 1,
-          page_size: 100,
+          page_size: 1000,
         });
         setStudentList(res?.data ?? null);
       } catch (e) {
@@ -706,13 +706,17 @@ export default function QuizAnalysis() {
   const studentColumns = [
     {
       title: '姓名',
+      align: 'center',
+      width: 80,
       dataIndex: 'student_name',
       key: 'student_name',
       render: (text: string) => <Text strong>{text}</Text>,
     },
-    { title: '学号', dataIndex: 'student_no', key: 'student_no' },
+    { title: '学号', align: 'center', width: 80, dataIndex: 'student_no', key: 'student_no' },
     {
       title: '结果',
+      align: 'center',
+      width: 80,
       key: 'result',
       render: (_: any, record: StudentAnswerItem) => (
         <ResultTag
@@ -723,12 +727,16 @@ export default function QuizAnalysis() {
     },
     {
       title: '提交时间',
+      align: 'center',
+      width: 80,
       dataIndex: 'submitted_at',
       key: 'submitted_at',
       render: (val: string | null) => formatTime(val),
     },
     {
       title: '用时',
+      align: 'center',
+      width: 80,
       dataIndex: 'duration_sec',
       key: 'duration_sec',
       render: (val: number) => formatDuration(val),
@@ -736,6 +744,8 @@ export default function QuizAnalysis() {
     {
       title: '操作',
       key: 'action',
+      align: 'center',
+      width: 80,
       render: (_: any, record: StudentAnswerItem, index: number) => (
         <Button
           type="link"
@@ -1081,7 +1091,7 @@ export default function QuizAnalysis() {
                       ),
                     }}
                   />
-                  {filteredStudents.length > PAGE_SIZE && (
+                  {/* {filteredStudents.length > PAGE_SIZE && (
                     <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: 16 }}>
                       <Pagination
                         current={studentPage}
@@ -1092,7 +1102,7 @@ export default function QuizAnalysis() {
                         size="small"
                       />
                     </div>
-                  )}
+                  )} */}
                 </Spin>
               </div>
             </Card>

@@ -647,6 +647,8 @@ function ClassManage() {
               size="small"
               icon={<DownloadOutlined />}
               style={{ padding: 0 }}
+              href="/test_stu_info.xlsx" // 替换为你 public 目录下的真实文件名
+              download="学生导入模板.xlsx" // 这里可以自定义用户下载到本地后的默认文件名
             >
               下载导入模板
             </Button>
