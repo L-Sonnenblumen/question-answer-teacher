@@ -167,21 +167,21 @@ function Quiz() {
         return <Tag color={color}>{status}</Tag>;
       },
     },
-    {
-      title: '操作',
-      align: 'center',
-      width: 80,
-      key: 'action',
-      render: () => (
-        <Button
-          type="link"
-          style={{ padding: 0, color: '#8c8c8c' }}
-          className="hover-blue"
-        >
-          查看 <ArrowRightOutlined />
-        </Button>
-      ),
-    },
+    // {
+    //   title: '操作',
+    //   align: 'center',
+    //   width: 80,
+    //   key: 'action',
+    //   render: () => (
+    //     <Button
+    //       type="link"
+    //       style={{ padding: 0, color: '#8c8c8c' }}
+    //       className="hover-blue"
+    //     >
+    //       查看 <ArrowRightOutlined />
+    //     </Button>
+    //   ),
+    // },
   ];
 
   // --- 交互与过滤 ---

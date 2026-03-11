@@ -29,6 +29,7 @@ import {
   Image,
 } from 'antd';
 import api from '../../api'; // 请确保 api 路径正确
+import dayjs from 'dayjs';
 
 const { Content } = Layout;
 const { Title, Text } = Typography;
@@ -87,6 +88,7 @@ function Exercise() {
           id: q.question_id,
           content: q.content_md,
           imageUrl: q.images && q.images.length > 0 ? q.images[0].image_url : null,
+          rawImages: q.images || [], // 🌟 核心：保留完整的图片原始数据供回显使用
           tags: (q.tags || []).map((t) => t.tag_name),
           createdAt: q.created_at ? q.created_at.substring(0, 10) : '',
           answer: q.reference_answer,
@@ -128,7 +130,6 @@ function Exercise() {
             const tagRes = await api.teacher.create_tag({ tag_name: tagName });
             if (tagRes && tagRes.code === 200) {
               await fetchTags(); // 刷新获取最新 tag_id
-              // 暂时不阻塞，等 fetch 完再取一遍 (实际生产环境中可以直接从 tagRes.data 获取，此处作容错处理)
             }
           }
         }
@@ -160,7 +161,17 @@ function Exercise() {
         // 3. 提交请求
         if (editingQuestionId) {
           formData.append('question_id', editingQuestionId);
-          formData.append('replace_images', true);
+
+          // 🌟 安全校验：判断用户是否上传了“新”文件或删除了所有图片
+          const hasNewFiles = values.images && values.images.some((file) => file.originFileObj);
+          const isAllDeleted = !values.images || values.images.length === 0;
+
+          if (hasNewFiles || isAllDeleted) {
+            formData.append('replace_images', true);
+          } else {
+            formData.append('replace_images', false); // 没动图片就不替换
+          }
+
           await api.teacher.update_question(formData);
           message.success('题目修改成功');
         } else {
@@ -180,10 +191,20 @@ function Exercise() {
 
   const openEditQuestionModal = (record) => {
     setEditingQuestionId(record.id);
+
+    // 🌟 核心：构造 Ant Design Upload 组件认识的 fileList 格式
+    const initialFileList = (record.rawImages || []).map((img, index) => ({
+      uid: img.image_id || `-${index}`, // 必须有唯一的 uid
+      name: `image-${index}.png`, // 文件名
+      status: 'done', // 状态必须是 done 才会显示缩略图
+      url: img.image_url, // 图片的真实地址
+    }));
+
     questionForm.setFieldsValue({
       content: record.content,
       tags: record.tags,
       answer: record.answer,
+      images: initialFileList, // 将转换好的图片数组回填到表单中
     });
     setIsQuestionModalVisible(true);
   };
@@ -244,7 +265,7 @@ function Exercise() {
   // 打开题目文字详情预览
   const openTextPreview = (record) => {
     setPreviewData({
-      title: `题目 #${record.id} 预览`,
+      title: `题目 ${record.id} 预览`,
       content: record.content,
     });
     setIsPreviewModalVisible(true);
@@ -315,7 +336,14 @@ function Exercise() {
         </Space>
       ),
     },
-    { title: '导入时间', align: 'center', dataIndex: 'createdAt', key: 'createdAt', width: 120 },
+    {
+      title: '导入时间',
+      align: 'center',
+      dataIndex: 'createdAt',
+      key: 'createdAt',
+      width: 120,
+      render: (text) => dayjs(text).format('YY-MM-DD'),
+    },
     {
       title: '操作',
       key: 'action',

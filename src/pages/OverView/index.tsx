@@ -97,18 +97,18 @@ const recentTestsColumns = [
       return <Tag color={color}>{text}</Tag>;
     },
   },
-  {
-    title: '操作',
-    key: 'action',
-    render: () => (
-      <Button
-        type="link"
-        style={{ padding: 0 }}
-      >
-        查看 <ArrowRightOutlined />
-      </Button>
-    ),
-  },
+  // {
+  //   title: '操作',
+  //   key: 'action',
+  //   render: () => (
+  //     <Button
+  //       type="link"
+  //       style={{ padding: 0 }}
+  //     >
+  //       查看 <ArrowRightOutlined />
+  //     </Button>
+  //   ),
+  // },
 ];
 
 function OverView() {

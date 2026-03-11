@@ -249,21 +249,21 @@ function ClassManage() {
           </Text>
         ),
     },
-    {
-      title: '操作',
-      align: 'center',
-      width: 60,
+    // {
+    //   title: '操作',
+    //   align: 'center',
+    //   width: 60,
 
-      key: 'action',
-      render: () => (
-        <Button
-          type="link"
-          size="small"
-        >
-          查看
-        </Button>
-      ),
-    },
+    //   key: 'action',
+    //   render: () => (
+    //     <Button
+    //       type="link"
+    //       size="small"
+    //     >
+    //       查看
+    //     </Button>
+    //   ),
+    // },
   ];
 
   return (
