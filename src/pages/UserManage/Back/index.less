@@ -1,0 +1,69 @@
+.usermanagement-page {
+  box-sizing: border-box;
+  height: calc(100vh - 48px - 40px - 64px - 10px);
+  position: relative;
+
+  .search-bar {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    background-color: white;
+    overflow-x: auto;
+    .input-items {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      padding: 16px 0;
+      padding-left: 16px;
+      .input-item {
+        // min-width: 140px;
+        margin-right: 20px;
+      }
+    }
+    .btn-items {
+      padding: 16px 0;
+      padding-right: 16px;
+      .btn-box {
+        display: flex;
+        justify-content: end;
+        .search-btn {
+          margin-left: 20px;
+        }
+        .add-btn {
+          margin-left: 20px;
+        }
+      }
+    }
+  }
+  // 这个是搜索框和表格的分界线
+  .space {
+    height: 16px;
+    width: 100%;
+    background-color: #f5f5f5;
+  }
+  .user-table {
+    background-color: white;
+    height: calc(100vh - 48px - 40px - 64px - 48px - 96px);
+    // 解决表为空数据是出现的占位
+    .ant-table-thead th.ant-table-cell-scrollbar {
+      display: none;
+    }
+    .table-pagination {
+      position: absolute;
+      right: 0;
+      bottom: -10px;
+      height: 48px;
+      width: 100%;
+      padding-right: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: right;
+      background-color: white;
+      border-top: 1px solid #f0f0f0;
+    }
+  }
+  .ellipsis-col {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 1px; /* 让列宽受 table-layout: fixed 控制 */
+  }
+}

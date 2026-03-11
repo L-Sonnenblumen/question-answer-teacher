@@ -1,0 +1,111 @@
+/* 整体布局 */
+.layout {
+  height: calc(100vh);
+  overflow: hidden;
+}
+
+.layout .ant-layout {
+  /* height: 100%; */
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.layout .ant-layout-content {
+  overflow: hidden;
+}
+
+/* 仅折叠标签文字 */
+.layout .ant-layout-sider {
+  flex: 0 0 70px !important;
+  max-width: 300px !important;
+}
+
+.layout .layout-logo-vertical {
+  font-size: 16px;
+  font-family: fantasy;
+  height: 64px;
+  /* background-color: var(--school-theme); */
+}
+
+.layout .layout-logo-vertical .layout-logo {
+  margin-right: 5px;
+}
+
+/* .logo {
+  width: 40px;
+  height: 40px;
+  background: url('../../assets/images/logo.png') no-repeat center / 40px auto;
+  margin: 10px auto 10px;
+} */
+
+.layout .sider-switch {
+  /* transform: translateX(75px); */
+  margin-bottom: 20px;
+  box-shadow: 0 0 3px #f5f5f5;
+}
+
+.layout .header-breadcrumb {
+  left: 1%;
+  position: absolute;
+  text-align: center;
+}
+.layout .header-center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.layout .header-right {
+  margin-right: 10px;
+  margin-left: auto;
+}
+
+.layout .user-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  transform: translateY(10px);
+  cursor: pointer;
+}
+
+.layout .breadcrumb {
+  font-weight: bold;
+  padding-left: 10px;
+  margin-bottom: 10px;
+}
+
+.ant-menu-light .ant-menu-item  span,
+.ant-menu-light .ant-menu-submenu-title  span,
+.ant-menu-light .ant-menu-item .ant-menu-item-icon, /* 增加图标容器 */
+.ant-menu-light .ant-menu-submenu-title .ant-menu-item-icon,
+.ant-menu-light .ant-menu-item svg,
+.ant-menu-light .ant-menu-submenu-title svg {
+  color: var(--menu-color);
+}
+
+.ant-menu-light .ant-menu-item:hover,
+.ant-menu-light .ant-menu-submenu-title:hover {
+  background: var(--menu-color) !important;
+}
+
+.ant-menu-light .ant-menu-item:hover span,
+.ant-menu-light .ant-menu-submenu-title:hover span,
+.ant-menu-light .ant-menu-item:hover svg,
+.ant-menu-light .ant-menu-submenu-title:hover svg {
+  color: var(--school-theme) !important;
+}
+
+.ant-menu-light .ant-menu-item-selected {
+  background: var(--menu-color) !important;
+}
+
+/* 选中时，强制文字和图标变色 */
+.ant-menu-light .ant-menu-item-selected span,
+.ant-menu-light .ant-menu-item-selected .ant-menu-item-icon,
+.ant-menu-light .ant-menu-item-selected svg {
+  color: var(--school-theme) !important;
+}

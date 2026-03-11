@@ -1,0 +1,63 @@
+.login {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  font-size: 1.6rem; /* 等于16px */
+  line-height: 1.5;
+  position: fixed;
+  left: 0;
+  top: 0;
+  /* background: center/cover no-repeat
+    url('../../assets/images/login/login-background.jpg'); */
+  background-image: url('@/assets/images/register/u1.jpg');
+  background-size: cover;
+
+  .login-container {
+    padding: 5rem;
+    width: 30%;
+    min-width: 40rem;
+    max-width: 45rem;
+    min-height: 35rem;
+    max-height: 40rem;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    /* background-color: rgba(255, 255, 255, 0.2); */
+    background-color: white;
+    box-shadow: 0 0 2px #eee;
+    .ant-form-item-control-input {
+      width: 150%;
+    }
+    .login-form {
+      padding: 3rem;
+      padding-bottom: 0;
+      min-width: 20rem;
+      .form-item {
+        width: 100%;
+        height: 4rem;
+      }
+      .login-captcha {
+        width: 100px;
+        height: 32px;
+        cursor: pointer;
+      }
+      .ant-form-item {
+      }
+    }
+    .login-btn {
+      width: 100%;
+    }
+    .ant-input-affix-wrapper {
+      height: 40px;
+    }
+  }
+  .find-password {
+    .btn {
+      cursor: pointer;
+      &:hover {
+        color: rgb(28, 98, 229);
+      }
+    }
+  }
+}

@@ -1,0 +1,76 @@
+// 全局样式
+@import url('./variables.less');
+:root {
+  --primary-color: @primary-color;
+  --success-color: @success-color;
+  --warning-color: @warning-color;
+  --error-color: @error-color;
+  --font-size-base: @font-size-base;
+  --heading-color: @heading-color;
+  --text-color: @text-color;
+  --border-radius-base: @border-radius-base;
+  --border-color-base: @border-color-base;
+  --box-shadow-base: @box-shadow-base;
+  --school-theme: @school-theme;
+  --menu-color: @menu-color;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  font-family:
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  line-height: 1.5;
+  color: @text-color;
+  background-color: #f0f2f5;
+}
+
+// 滚动条样式
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* ========== 全局悬浮滚动条 ========== */
+// * {
+//   /* 基础滚动条宽度 */
+//   scrollbar-width: thin; /* Firefox */
+//   scrollbar-color: transparent transparent;
+// }
+
+// *::-webkit-scrollbar {
+//   width: 6px; /* 纵向滚动条宽度 */
+//   height: 6px; /* 横向滚动条高度 */
+// }
+
+// *::-webkit-scrollbar-track {
+//   background: transparent;
+// }
+
+// *::-webkit-scrollbar-thumb {
+//   background-color: transparent; /* 默认隐藏 */
+//   border-radius: 3px;
+// }
+
+// /* 悬停时显现 */
+// *:hover::-webkit-scrollbar-thumb {
+//   background-color: rgba(0, 0, 0, 0.25);
+// }

@@ -1,0 +1,109 @@
+@keyframes scaleUp {
+  from {
+    transform: scale(0.95);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+// .register-form-box {
+//   width: 100%;
+//   min-height: 100vh;
+//   height: auto;
+//   background: linear-gradient(135deg, #ffffff 0%, #eef6ff48 100%);
+//   background-image: url('../../assets/images/register/u1.jpg');
+//   background-repeat: no-repeat;
+//   background-size: 180% 100%; /* 设置宽度为容器的120% */
+//   background-position: -40rem, 0;
+
+//   .nav {
+//     margin: 0 5%;
+//     padding-top: 2rem;
+//     margin-bottom: 2rem;
+//     border-bottom: 1px solid #ddd;
+//     display: flex;
+//     justify-content: space-between;
+//   }
+
+//   .register-form {
+//     position: relative;
+//     min-width: 60rem;
+//     margin: 0 auto;
+//     padding: 2rem;
+//     background-color: rgba(255, 255, 255, 0.8);
+//     max-width: 40%;
+//     box-shadow: 0 0 1.5rem rgba(0, 0, 0, 0.05);
+//     margin-bottom: 2.2rem;
+//     animation: scaleUp 0.5s ease-in-out both; /* 缩放动画 */
+//     .ant-form-item {
+//       margin-bottom: 5px;
+//       display: inline;
+//     }
+
+//     .back-custom-btn {
+//       position: absolute;
+//       bottom: 4rem;
+//       right: 17rem;
+//     }
+//   }
+// }
+
+.findPassword {
+  height: 100vh;
+  background: linear-gradient(135deg, #ffffff 0%, #eef6ff48 100%);
+  background-image: url('../../assets/images/register/u1.jpg');
+  background-repeat: no-repeat;
+  background-size: 180% 100%; /* 设置宽度为容器的120% */
+  background-position: -40rem, 0;
+  overflow: hidden;
+  .nav {
+    margin: 0 5%;
+    padding-top: 2rem;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .findPassword-form-box {
+    position: relative;
+    border-radius: 1rem;
+    margin: 0 auto;
+    min-width: 400px;
+    height: 500px;
+    padding: 2rem;
+    background-color: rgba(255, 255, 255, 0.8);
+    max-width: 40%;
+    box-shadow: 0 0 1.5rem rgba(0, 0, 0, 0.05);
+    margin-bottom: 2.2rem;
+    margin-top: 10vh;
+    animation: scaleUp 0.5s ease-in-out both; /* 缩放动画 */
+    .findPassword-form {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      margin-top: 3rem;
+      .title {
+        font-size: 18px;
+        border-left: 3px solid #2b8dfd;
+        padding-left: 10px;
+        margin-bottom: 30px;
+      }
+      .ant-form-item-row {
+        width: 150%;
+        min-width: 300px;
+        margin-bottom: 40px;
+      }
+      // 修改antd样式
+      .ant-col {
+        margin-left: 0;
+      }
+      .btn-box {
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+  }
+}
