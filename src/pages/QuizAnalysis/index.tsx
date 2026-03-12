@@ -662,7 +662,7 @@ export default function QuizAnalysis() {
             color={color}
             style={{ borderRadius: 10 }}
           >
-            {val}%
+            {Number(val).toFixed(2)}%
           </Tag>
         );
       },
@@ -680,7 +680,7 @@ export default function QuizAnalysis() {
             icon={<WarningOutlined />}
             style={{ borderRadius: 10 }}
           >
-            {val}%
+            {Number(val).toFixed(2)}%
           </Tag>
         ) : (
           '—'
@@ -821,26 +821,26 @@ export default function QuizAnalysis() {
                 {
                   color: '#2a9d8f',
                   label: '提交率',
-                  value: summary ? `${summary.submit_rate}%` : '—',
+                  value: summary ? `${Number(summary.submit_rate).toFixed(2)}%` : '—',
                   sub: `${summary?.unsubmitted_student_count ?? '—'} 人未提交`,
-                },
-                {
-                  color: '#e9c46a',
-                  label: '平均分',
-                  value: summary?.average_score ?? '—',
-                  sub: `满分 ${summary?.full_score ?? '—'}`,
                 },
                 {
                   color: '#457b9d',
                   label: '平均正确率',
-                  value: summary ? `${summary.average_accuracy}%` : '—',
+                  value: summary ? `${Number(summary.average_accuracy).toFixed(2)}%` : '—',
                   sub: summary
-                    ? `较上次 ${summary.score_trend === 'up' ? '↑' : summary.score_trend === 'down' ? '↓' : '—'} ${Math.abs(summary.score_compare_last_quiz)}%`
+                    ? `较上次 ${
+                        summary.score_trend === 'up'
+                          ? '↑'
+                          : summary.score_trend === 'down'
+                            ? '↓'
+                            : '—'
+                      } ${Math.abs(summary.score_compare_last_quiz)}%`
                     : '—',
                 },
               ].map((card) => (
                 <Col
-                  span={6}
+                  span={8}
                   key={card.label}
                 >
                   <Card
@@ -1204,7 +1204,7 @@ export default function QuizAnalysis() {
                         type="secondary"
                         style={{ fontSize: 12 }}
                       >
-                        综合正确率：{studentDetail.accuracy_rate}%
+                        综合正确率：{Number(studentDetail.accuracy_rate).toFixed(2)}%
                       </Text>
                     </div>
                   </div>
@@ -1399,8 +1399,10 @@ export default function QuizAnalysis() {
                           </Space>
                           <p style={{ margin: 0, color: '#d46b08', fontSize: 13 }}>
                             该错误在本题中出现频率{' '}
-                            <strong>{activeQuestion?.typical_error_rate ?? '—'}%</strong>，
-                            系统已自动聚类标记，可重点关注并推送复习建议。
+                            <strong>
+                              {Number(activeQuestion?.typical_error_rate).toFixed(2) ?? '—'}%
+                            </strong>
+                            ， 系统已自动聚类标记，可重点关注并推送复习建议。
                           </p>
                         </div>
                       )}

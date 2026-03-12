@@ -147,7 +147,7 @@ function ClassManage() {
   const handleEditSubmit = () => {
     editForm.validateFields().then(async (values) => {
       try {
-        const res = await api.teacher.update_class({ ...values, grade_name: values.grade_name[0] });
+        const res = await api.teacher.update_class({ ...values, grade_name: values.grade_name });
         if (res.code === 200) {
           message.success('班级信息已更新');
           setIsEditModalVisible(false);
@@ -227,7 +227,7 @@ function ClassManage() {
       render: (accuracy) => {
         // 完全保留你原本的 Tag 颜色判断逻辑
         const color = accuracy >= 80 ? 'success' : accuracy >= 70 ? 'warning' : 'error';
-        return <Tag color={color}>{accuracy}%</Tag>;
+        return <Tag color={color}>{Number(accuracy).toFixed(2)}%</Tag>;
       },
     },
     {

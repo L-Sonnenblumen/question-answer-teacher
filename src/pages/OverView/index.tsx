@@ -73,7 +73,7 @@ const recentTestsColumns = [
           size="small"
           style={{ width: 100 }}
         />
-        <Text type="secondary">{rate}%</Text>
+        <Text type="secondary">{Number(rate).toFixed(2)}%</Text>
       </Space>
     ),
   },
@@ -274,7 +274,7 @@ function OverView() {
                 level={2}
                 style={statCardTitleStyle}
               >
-                {data.average_accuracy_rate}%
+                {Number(data.average_accuracy_rate).toFixed(2)}%
               </Title>
               <Text style={statCardSecondaryStyle}>
                 较上周{' '}
@@ -285,7 +285,7 @@ function OverView() {
                 {data.accuracy_rate_trend === 'flat' && (
                   <MinusOutlined style={{ color: '#bfbfbf' }} />
                 )}{' '}
-                {data.accuracy_rate_compare_last_week}%
+                {Number(data.accuracy_rate_compare_last_week).toFixed(2)}%
               </Text>
             </Card>
           </Col>
@@ -326,7 +326,7 @@ function OverView() {
               title={
                 <Space>
                   <WarningOutlined style={{ color: '#fa8c16' }} />
-                  <span>典型错误 Top 5</span>
+                  <span>典型错误</span>
                 </Space>
               }
               headStyle={{ borderBottom: '1px solid #f0f0f0' }}

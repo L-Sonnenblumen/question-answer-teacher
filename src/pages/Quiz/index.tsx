@@ -142,17 +142,9 @@ function Quiz() {
             style={{ width: 80 }}
             strokeColor={rate === 100 ? '#52c41a' : '#1890ff'}
           />
-          <Text type="secondary">{rate}%</Text>
+          <Text type="secondary">{Number(rate).toFixed(2)}%</Text>
         </Space>
       ),
-    },
-    {
-      title: '平均分',
-      align: 'center',
-      width: 80,
-      dataIndex: 'avgScore',
-      key: 'avgScore',
-      render: (score) => (score ? <Text>{score}</Text> : <Text type="secondary">-</Text>),
     },
     {
       title: '状态',

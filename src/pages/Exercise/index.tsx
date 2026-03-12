@@ -360,7 +360,7 @@ function Exercise() {
           >
             编辑
           </Button>
-          <Popconfirm
+          {/* <Popconfirm
             title="确定要删除这道题吗？"
             onConfirm={() => handleDeleteQuestion(record.id)}
           >
@@ -373,7 +373,7 @@ function Exercise() {
             >
               删除
             </Button>
-          </Popconfirm>
+          </Popconfirm> */}
         </Space>
       ),
     },
