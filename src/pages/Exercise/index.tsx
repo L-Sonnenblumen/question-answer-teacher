@@ -543,7 +543,7 @@ function Exercise() {
           >
             <TextArea
               rows={5}
-              placeholder="在此输入题目，支持 Markdown 格式..."
+              placeholder="在此输入题目，支持 Markdown 格式...-----题目内容不能为空，若是纯图片题请在此处说明"
               style={{ fontFamily: 'monospace' }}
             />
           </Form.Item>

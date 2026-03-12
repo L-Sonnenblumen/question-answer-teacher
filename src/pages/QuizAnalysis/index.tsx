@@ -542,11 +542,10 @@ export default function QuizAnalysis() {
 
   const getAccuracyOption = () => {
     if (!summary || !summary.question_accuracy_list?.length) return {};
-    const list = summary.question_accuracy_list.map((q) => ({
+    const list = summary.question_accuracy_list.slice(0, 10).map((q) => ({
       name: q.content_md,
       value: q.accuracy_rate,
     }));
-
     return {
       tooltip: {
         trigger: 'axis',
@@ -1356,30 +1355,64 @@ export default function QuizAnalysis() {
                           {ans.typical_errors?.length > 0 && (
                             <div
                               style={{
-                                marginTop: 8,
-                                paddingTop: 8,
-                                borderTop: '1px solid #ffa39e',
+                                marginTop: 12,
+                                paddingTop: 12,
+                                borderTop: '1px dashed #ffa39e',
                               }}
                             >
                               <Text
                                 strong
-                                style={{ fontSize: 12 }}
+                                style={{
+                                  fontSize: 13,
+                                  color: '#cf1322',
+                                  display: 'block',
+                                  marginBottom: 8,
+                                }}
                               >
-                                典型错误分类：
+                                典型错误分析：
                               </Text>
-                              {ans.typical_errors
-                                .filter((e) => e.is_primary)
-                                .map((e) => (
-                                  <div
-                                    key={e.pattern_id}
-                                    style={{ marginTop: 6 }}
-                                  >
-                                    <Tag color="orange">{e.pattern_name}</Tag>
-                                    <span style={{ fontSize: 12, color: '#595959', marginLeft: 6 }}>
-                                      {e.pattern_desc}
-                                    </span>
+                              {/* 移除了之前的 .filter(e => e.is_primary)，直接遍历整个数组 */}
+                              {ans.typical_errors.map((e) => (
+                                <div
+                                  key={e.pattern_id}
+                                  style={{
+                                    marginTop: 8,
+                                    padding: '8px 12px',
+                                    background: '#fff',
+                                    borderRadius: 6,
+                                    border: `1px solid ${e.is_primary ? '#ffccc7' : '#ffe7ba'}`,
+                                  }}
+                                >
+                                  <div style={{ marginBottom: 4 }}>
+                                    <Tag color={e.is_primary ? 'red' : 'orange'}>
+                                      {e.pattern_name}
+                                    </Tag>
+                                    {e.is_primary && (
+                                      <Text
+                                        type="danger"
+                                        style={{ fontSize: 12, marginLeft: 4 }}
+                                      >
+                                        (主要错误)
+                                      </Text>
+                                    )}
                                   </div>
-                                ))}
+                                  <div style={{ fontSize: 12, color: '#595959', marginBottom: 4 }}>
+                                    <Text strong>错误表现：</Text>
+                                    {e.pattern_desc}
+                                  </div>
+                                  {e.suggestion_text && (
+                                    <div style={{ fontSize: 12, color: '#1890ff' }}>
+                                      <Text
+                                        strong
+                                        style={{ color: '#0958d9' }}
+                                      >
+                                        复习建议：
+                                      </Text>
+                                      {e.suggestion_text}
+                                    </div>
+                                  )}
+                                </div>
+                              ))}
                             </div>
                           )}
                         </div>

@@ -57,7 +57,7 @@ const CreateQuizModal: React.FC<CreateQuizModalProps> = ({ visible, onClose, onS
           tag_ids: [],
           status: '',
           page: 1,
-          page_size: 100,
+          page_size: 1000,
         }),
       ]);
 

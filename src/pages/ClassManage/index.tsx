@@ -131,7 +131,7 @@ function ClassManage() {
       console.log('🚀 ~ handleCreateSubmit ~ values:', values);
 
       try {
-        const res = await api.teacher.create_class({ ...values, grade_name: values.grade_name[0] });
+        const res = await api.teacher.create_class({ ...values, grade_name: values.grade_name });
         if (res.code === 200) {
           message.success('班级创建成功');
           setIsCreateModalVisible(false);
