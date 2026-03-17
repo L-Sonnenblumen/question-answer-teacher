@@ -92,7 +92,7 @@ const BackendLogin = () => {
                 fontWeight: 'bolder',
               }}
             >
-              答题系统教师端
+              智阅·导学系统
             </div>
             {isUsernameLogin ? (
               <div className="login-form">
